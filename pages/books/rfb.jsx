@@ -27,6 +27,7 @@ export default function RFBBookPage() {
           <a
             href={getFetchFileURL("/ywordk/rfb/Righteousness by Faith-01.pdf")}
             target="_blank"
+            rel="noreferrer"
           >
             Download book in pdf
           </a>

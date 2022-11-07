@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Abayomi Akintomide's personal website</title>
+        <title>Abayomi Akintomide&apos;s personal website</title>
         <meta
           name="description"
           content="Abayomi Akintomide's personal website"
@@ -23,26 +23,40 @@ export default function Home() {
           Akintomide
         </h1>
         <p className={utilStyles.section}>
-          Hi, I'm Abayomi, son of God. A bit about me <br />
+          Hi, I&apos;m Abayomi, son of God. A bit about me <br />
           I write, and I code, and do much more <br />
-          And as time passes, I'll add more.
+          And as time passes, I&apos;ll add more.
           <br />
           But please, check out my book, and my projects.
         </p>
         <div className={utilStyles["section-02"]}>
           <h3 className={utilStyles["section-00"]}>Books</h3>
           <List
-            items={[<Link href="/books/rfb">Righteousness by Faith</Link>]}
+            items={[
+              <Link key="rfb" href="/books/rfb">
+                Righteousness by Faith
+              </Link>,
+            ]}
           />
         </div>
         <div className={utilStyles["section-02"]}>
           <h3 className={utilStyles["section-00"]}>Projects</h3>
           <List
             items={[
-              <a target="_blank" href="https://www.softkave.com">
+              <a
+                key="softkave"
+                target="_blank"
+                href="https://www.softkave.com"
+                rel="noreferrer"
+              >
                 Softkave
               </a>,
-              <a target="_blank" href="https://www.fimidara.com">
+              <a
+                key="fimidara"
+                target="_blank"
+                href="https://www.fimidara.com"
+                rel="noreferrer"
+              >
                 Fimidara
               </a>,
             ]}

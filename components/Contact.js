@@ -4,13 +4,13 @@ export default function Contact() {
       <div>You can reach me at:</div>
       <div>
         Twitter —&nbsp;
-        <a href="https://twitter.com/ywordk" target="_blank">
+        <a href="https://twitter.com/ywordk" target="_blank" rel="noreferrer">
           @ywordk
         </a>
       </div>
       <div>
         Email —&nbsp;
-        <a href="mailto:ywordk@gmail.com" target="_blank">
+        <a href="mailto:ywordk@gmail.com" target="_blank" rel="noreferrer">
           ywordk@gmail.com
         </a>
       </div>
