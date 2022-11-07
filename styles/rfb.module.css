@@ -1,0 +1,14 @@
+.writer {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.download-link-container {
+  padding-top: 2rem;
+  padding-bottom: 0rem;
+}
+
+.forward-text {
+  padding-top: 0rem;
+  padding-bottom: 2rem;
+}

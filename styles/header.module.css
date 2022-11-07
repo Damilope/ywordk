@@ -1,0 +1,8 @@
+.header {
+  display: flex;
+  padding: 1rem 0;
+}
+
+.home-link-container {
+  flex: 1;
+}
