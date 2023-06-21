@@ -1,6 +1,8 @@
 .writer {
   font-size: 1rem;
   font-weight: normal;
+  margin-top: 7px;
+  color: #777;
 }
 
 .download-link-container {
@@ -8,7 +10,14 @@
   padding-bottom: 0rem;
 }
 
-.forward-text {
+.forward-text-container {
   padding-top: 0rem;
   padding-bottom: 2rem;
+}
+
+.icon {
+  display: inline-block;
+  margin-right: 4px;
+  font-size: 18px;
+  vertical-align: middle;
 }

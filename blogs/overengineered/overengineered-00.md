@@ -1,0 +1,76 @@
+[//]: # "title: OverEngineered Part 00"
+[//]: # "description: The OverEngineer."
+
+# OverEngineered Part 00: The OverEngineer
+
+## Introductions
+
+Hi there, the name's Abayomi Akintomide, the **OverEngineer** [dramatic sounds!]. Pardon my pizazz, I'm afterall, the OverEngineer. Introductions; I am a Christian, and a Software Engineer, who firmly believes himself begotten of God, with good reason (ask me about it if you want to know). I also thoroughly enjoy anime and a good story like any sane person should. I may be a bit wierd, but who's counting? 😊
+
+Now that that's out of the way, welcome to **OverEngineered**, where I plan to write about several my projects, inspirations, and methods of implementation. The overall goal here is to enlighten, entertain, and have you the reader critic my technical decisions, whether they are overengineered or not. You can also share tips on how you think I can implement better. We are not there yet though seeing I have not implemented a comment system. I'm thinking I'll for now, cross-post on other technical blog platforms (you can share some you think I should post to) to hear your thoughts, or you can contact me directly. I'll also prefer your contact and criticisms be kindly-worded [please, spare, I'm gentle on the inside].
+
+## Writing Softkave
+
+### Abstractions and Inversion of Control
+
+To start, when I set out to write [Softkave](https://www.softkave.com), my first large-scale coding project, I quickly ran into some issues with tightly-coupled code. I started with [`REST`](https://en.wikipedia.org/wiki/Representational_state_transfer) using [`express.js`](https://expressjs.com/), moved to [`graphQL`](https://graphql.org/), and now back to `REST`. At the time, I remember thinking I didn't want to tightly couple my application logic with the serving framework, so I designed a system of coding the backend that'd allow me to transition to another serving framework smoothly. At least, smooth enough to not require a full or significant rewrite. I also extended this thinking to other systems the code depended on, like DB, email provider, etc. It was around this time I stumbled upon [inversion of control](https://en.wikipedia.org/wiki/Inversion_of_control) from an Atlassian blog I read. I would learn about [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection) much later though during my time at Google. Going back to inversion of control, the system I designed would have endpoints for different `API` routes, and the necessary code to make them work (like DB access) will be passed in through a `context` instead of importing it statically into the endpoint handler code. Understand that this was wild for me at the time as I didn't know about dependency injection as I said earlier.
+
+This design allowed the endpoint handlers to behave like any other function. They'd take 2 arguments, the `context`, and the `requestData`, and they'd return a single response that'd be sent back to the client. This made them in effect, abstracted from the serving layer. I could serve them through `graphQL`, `REST`, `socket`, `grpc`, etc. To integrate with a new serving layer, the serving layer only need call into the endpoint handler with `context` and `requestData` parameters, and `await` the result. For example:
+
+```typescript
+app.post(async (req, res) => {
+  const result = await addBoard(context, RequestData.fromExpressRequest(req));
+});
+```
+
+I also used a similar design for my other project, [fimidara](https://www.fimidara.com). I've thought of extracting out the code to make it easily reusable but I haven't had the time. Maybe someday.
+
+### The Context and Request Data
+
+The `context` is a collection of static properties and methods that can be shared across different endpoints and requests. It contained things like DB connection, email provider, file provider, cache, etc. The `RequestData` on the other hand is an [`interface`](https://www.typescriptlang.org/docs/handbook/interfaces.html) (I use [`Typescript`](https://www.typescriptlang.org/)) providing framework-agnostic request data, like request ID, IP, request body, authentication token, user agent, etc. In it lived request-specific data, i.e data unique to a request that you want passed around through the life-cycle of a request. The `context` is also an `interface`, `BaseContext`, and as long as you provide the two fully implemented, calling the endpoint handlers should work fine.
+
+### Mocking and Testing
+
+This design also proved itself useful for [unit](https://en.wikipedia.org/wiki/Unit_testing) and [integration testing](https://en.wikipedia.org/wiki/Integration_testing), where I had to [mock](https://en.wikipedia.org/wiki/Mock_object) certain providers and properties to test different flows. I know this sounds a lot like dependency injection, but mind you, I didn't know dependency injection at the time. I was a noob coder.
+
+### Sotkave's REST Server
+
+For Softkave's `REST` server, the endpoints were wrapped by a [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) `wrapEndpointREST` which supplied them the `context` and `requestData`, handled the response, and handled any error that bubbled up during the execution of the endpoint handler. It looked something like this:
+
+```typescript
+const wrapEndpointREST = <E extends Endpoint<any, any, any>>(
+  endpoint: E,
+  context: GetEndpointContext<E>,
+  handleResponse?: (
+    res: Response,
+    result: Awaited<GetEndpointResult<E>>
+  ) => void
+): ((req: Request, res: Response) => any) => {
+  return async (req: Request, res: Response) => {
+    try {
+      const instData = RequestData.fromExpressRequest(
+        context,
+        req as unknown as IServerRequest,
+        req.body
+      );
+
+      const result = await endpoint(context, instData);
+      if (handleResponse) {
+        handleResponse(res, result);
+      } else {
+        res.status(200).json(result || {});
+      }
+    } catch (error) {
+      // omitted some error processing
+      const result = { errors: processedError };
+      res.status(500).json(result);
+    }
+  };
+};
+```
+
+It was a simple function that takes in the endpoint handler, and returns another function that'd interface with `express.js`. The function would call the endpoint handler wrapped in a `try ... catch()` block for global error handling. I think I'll write about the error handling someday. The global error handling allowed me to throw errors from anywhere within the endpoint request lifecycle knowing it'll be handled correctly, with the correct response returned to the client.
+
+## Your Thoughts
+
+There's a lot more to write about this topic but I think it's best to uncover them gradually rather than all at once. Let me know if you think this design is **OverEngineered** or not, why you think so, and how I could have made it better or simpler. You can reach me on [Twitter @ywordk](https://twitter.com/ywordk) or through [email](mailto:ywordk@gmail.com). Also check out my website [ywordk.com](https://www.ywordk.com) for up-to-date contact info. Thank you for your time, and have a good one.
