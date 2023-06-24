@@ -14,7 +14,6 @@ export interface IBlogProps {
 export default function Blog(props: IBlogProps) {
   const { text } = props;
   const { title, description } = getBlogMeta(text);
-  console.log({ title, description });
 
   return (
     <React.Fragment>
