@@ -1,9 +1,9 @@
-import { useLoadBlogList } from "@/hooks/useBlogList";
-import { useErrorNode } from "@/hooks/useErrorNode";
+import { useLoadBlogList } from "@/hooks/useBlogList.tsx";
+import { useErrorNode } from "@/hooks/useErrorNode.tsx";
 import { IBlogInfo } from "../lib/definitions/types";
-import BlogList from "./BlogList";
 import PageLoading from "./PageLoading";
 import PageMessage from "./PageMessage";
+import BlogItemList from "./blog/blog-item-list";
 
 export interface IFimidaraBackedBlogListProps {
   title: string;
@@ -27,7 +27,7 @@ export default function FimidaraBackedBlogList(
   }
 
   return (
-    <BlogList
+    <BlogItemList
       title={title}
       blogList={blogsHook.data}
       getBlogHref={getBlogHref}

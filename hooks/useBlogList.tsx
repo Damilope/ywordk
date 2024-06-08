@@ -1,5 +1,4 @@
-import { getFimidaraEndpoints } from "@/lib/api/fimidaraEndpoints";
-import { IBlogInfo } from "@/lib/definitions/types";
+import { getFimidaraEndpoints } from "@/lib/api/fimidaraEndpoints.js";
 import { useRequest } from "ahooks";
 
 export function useLoadBlogList(filepath) {

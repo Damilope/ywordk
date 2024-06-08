@@ -1,8 +1,8 @@
 import { cx } from "@emotion/css";
 import utilstyles from "../styles/util.module.css";
-import Contact from "./Contact";
 import Header from "./Header";
-import Layout from "./Layout";
+import Contact from "./contact/Contact";
+import Layout from "./layout/Layout";
 
 export interface IPageMessageProps {
   message: string;

@@ -1,9 +1,9 @@
-import { useErrorNode } from "@/hooks/useErrorNode";
+import { useErrorNode } from "@/hooks/useErrorNode.tsx";
 import { useRequest } from "ahooks";
 import { getFimidaraEndpoints } from "../lib/api/fimidaraEndpoints";
-import Blog from "./Blog";
 import PageLoading from "./PageLoading";
 import PageMessage from "./PageMessage";
+import BlogContent from "./blog/Blog";
 
 export interface IFimidaraBackedBlogProps {
   filepath: string;
@@ -20,7 +20,7 @@ export default function FimidaraBackedBlog(props: IFimidaraBackedBlogProps) {
     return <PageLoading />;
   }
 
-  return <Blog text={blogHook.data} />;
+  return <BlogContent text={blogHook.data} />;
 }
 
 function useBlog(filepath: string) {

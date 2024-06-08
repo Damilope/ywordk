@@ -1,0 +1,19 @@
+.item {
+  margin: 16px 0px;
+}
+
+.itemTitle {
+  margin: 2px 0px;
+}
+
+.downloadLinkContainer {
+  padding-top: 2rem;
+  padding-bottom: 0rem;
+}
+
+.icon {
+  display: inline-block;
+  margin-right: 4px;
+  font-size: 18px;
+  vertical-align: middle;
+}

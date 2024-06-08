@@ -1,0 +1,12 @@
+.num {
+  font-size: 10px;
+  margin-right: 4px;
+  text-align: center;
+  border-radius: 50%;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  border: 1px solid rgba(38, 38, 38, 0.45);
+  font-weight: 700;
+}

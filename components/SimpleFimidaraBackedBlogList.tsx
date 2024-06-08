@@ -1,5 +1,5 @@
-import { useLoadBlogList } from "@/hooks/useBlogList";
-import { useErrorNode } from "@/hooks/useErrorNode";
+import { useLoadBlogList } from "@/hooks/useBlogList.tsx";
+import { useErrorNode } from "@/hooks/useErrorNode.tsx";
 import { IBlogInfo } from "../lib/definitions/types";
 import utilstyles from "../styles/util.module.css";
 import SimpleBlogList from "./SimpleBlogList";

@@ -2,7 +2,7 @@ import assert from "assert";
 import * as fimidara from "fimidara";
 import fs from "fs";
 import fse from "fs-extra";
-import { systemConstants } from "../lib/definitions/system";
+import { kConstants } from "../lib/definitions/system";
 import { IBlogInfo } from "../lib/definitions/types";
 import { indexArray } from "../lib/utils/indexArray";
 
@@ -163,15 +163,15 @@ async function main() {
   await Promise.all([
     uploadBlogFiles(
       kFaithBlogListFilepath,
-      systemConstants.faithBlogListFilepath,
+      kConstants.faithBlogListFilepath,
       kFaithBlogDir,
-      systemConstants.faithBlogFolder
+      kConstants.faithBlogFolder
     ),
     uploadBlogFiles(
       kOverEngineeredBlogListFilepath,
-      systemConstants.overengineeredBlogListFilepath,
+      kConstants.overengineeredBlogListFilepath,
       kOverEngineeredBlogDir,
-      systemConstants.overengineeredBlogFolder
+      kConstants.overengineeredBlogFolder
     ),
   ]);
 }
