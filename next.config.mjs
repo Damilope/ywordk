@@ -7,6 +7,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+  experimental: {
+    instrumentationHook: true,
+  },
 };
 
 export default withMDX(nextConfig);
