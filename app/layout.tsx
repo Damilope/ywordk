@@ -1,13 +1,15 @@
 import Header from "@/components/Header.tsx";
 import Contact from "@/components/contact/Contact.tsx";
 import Layout from "@/components/layout/Layout.tsx";
-import { cx } from "@emotion/css";
 import type { Metadata } from "next";
-import { Work_Sans as FontSans } from "next/font/google";
+// import { Work_Sans as FontSans } from "next/font/google";
+import { cn } from "@/components/utils.ts";
+import { Space_Grotesk as FontSans } from "next/font/google";
 import styles from "../styles/layout.module.css";
 import utilStyles from "../styles/util.module.css";
+import "./globals.css";
 
-const fontSans = FontSans({
+const font = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -19,12 +21,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}): JSX.Element {
+}>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cx(fontSans.variable, styles.body)}>
+      <body className={cn(font.variable, styles.body)}>
         <Layout centerNodeClassName={utilStyles["main-width"]}>
           <Header />
           {children}

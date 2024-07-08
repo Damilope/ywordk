@@ -1,5 +1,7 @@
 - generic sections
 - themes
-- thumbnails
+- breadcrumb
+- book picture
 - no inline text but use mdx files for texting
 - externally backed files
+- md title

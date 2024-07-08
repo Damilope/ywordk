@@ -1,7 +1,7 @@
 @media (min-width: 920px) {
   .root {
     display: grid;
-    grid-template-columns: 1fr 720px 1fr;
+    grid-template-columns: 1fr 620px 1fr;
   }
 }
 

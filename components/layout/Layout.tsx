@@ -1,5 +1,5 @@
-import { cx } from "@emotion/css";
 import { StyleableComponentProps } from "../types";
+import { cn } from "../utils.ts";
 import styles from "./layout.module.css";
 
 export interface LayoutProps extends StyleableComponentProps {
@@ -34,9 +34,9 @@ export default function Layout(props: LayoutProps) {
   } = props;
 
   return (
-    <div className={cx(styles.root, className)} style={style}>
+    <div className={cn(styles.root, className)} style={style}>
       <div
-        className={cx(
+        className={cn(
           leftNodePositionOnMobile === "hidden" && styles.hideNodeOnMobile,
           leftNodeClassName
         )}
@@ -48,7 +48,7 @@ export default function Layout(props: LayoutProps) {
         {children}
       </div>
       <div
-        className={cx(
+        className={cn(
           rightNodePositionOnMobile === "hidden" && styles.hideNodeOnMobile,
           rightNodeClassName
         )}

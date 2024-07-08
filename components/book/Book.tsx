@@ -1,11 +1,12 @@
 import { BookItemDef } from "@/lib/definitions/book.ts";
 import { kAppRootPaths, kConstants } from "@/lib/definitions/system.ts";
-import { cx } from "@emotion/css";
 import assert from "assert";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import fetch from "node-fetch";
 import { normalize } from "path";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
 import utilstyles from "../../styles/util.module.css";
+import { cn } from "../utils.ts";
 import styles from "./book.module.css";
 import { getBookDefList } from "./getBookItemList.ts";
 
@@ -23,9 +24,11 @@ async function getBookDescription(
     const filepath = normalize(
       `${kConstants.booksFolder}/${book.key}/${book.descriptionMd}`
     );
-    const filepathURL = new URL(filepath, kConstants.serverURL);
+    const filepathURL = kConstants.getURL(filepath);
     // TODO: set an appropriate cache policy
-    const response = await fetch(filepathURL, { cache: "no-cache" });
+    const response = await fetch(filepathURL, {
+      // cache: "no-cache"
+    });
     const content = await response.text();
     return content;
   }
@@ -54,20 +57,18 @@ export default async function BookContent(props: BookContentProps) {
 
   return (
     <div>
-      <h1 className={cx(utilstyles.title, utilstyles.section)}>{def.title}</h1>
-      <div className={cx(styles["download-link-container"])}>
-        <a href={href} target="_blank" rel="noreferrer">
-          <span className={styles.icon}>
-            <HiOutlineDocumentDownload />
-          </span>
-          Download book in pdf
-        </a>
-      </div>
-      {description && (
-        <div>
-          <MDXRemote source={description} />
+      <h1 className={cn(utilstyles.title, utilstyles.section)}>{def.title}</h1>
+      <div className={utilstyles.section}>
+        <div className={cn(styles["download-link-container"])}>
+          <a href={href} target="_blank" rel="noreferrer">
+            <span className={styles.icon}>
+              <HiOutlineDocumentDownload />
+            </span>
+            Download book in pdf
+          </a>
         </div>
-      )}
+        {description && <MDXRemote source={description} />}
+      </div>
     </div>
   );
 }

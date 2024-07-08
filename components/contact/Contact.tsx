@@ -7,11 +7,7 @@ export default function Contact(props: StyleableComponentProps) {
   return (
     <div style={style} className={className}>
       <div>You can reach me at:</div>
-      <ContactItem
-        title="Twitter"
-        content="@ywordk"
-        href="https://twitter.com/ywordk"
-      />
+      <ContactItem title="X" content="@ywordk" href="https://x.com/ywordk" />
       <ContactItem
         title="Email"
         content="ywordk@gmail.com"
