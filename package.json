@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "env-cmd -f \".env.dev\" next dev",
-    "build": "env-cmd -f \".env.dev\" next build",
-    "start": "next start",
+    "start-dev": "next dev -p $PORT",
+    "start": "next start -p $PORT",
+    "build": "next build",
+    "dev": "env-cmd -f \".env.dev\" npm run start-dev",
+    "build-dev": "env-cmd -f \".env.dev\" npm run build",
+    "dev-prod": "env-cmd -f \".env.production\" npm run start-dev",
+    "build-prod": "env-cmd -f \".env.production\" npm run build",
+    "start-prod": "npm run build-prod && env-cmd -f \".env.production\" npm run start",
     "lint": "next lint"
   },
   "dependencies": {

@@ -14,8 +14,6 @@ export default function BlogDefListComponent(props: BlogDefListProps) {
   const { blogDefList } = props;
   const href = `${kAppRootPaths.blogs}`;
 
-  console.dir(props, { depth: 4 });
-
   return (
     <div className={cn(utilstyles.section, utilstyles["main-width"])}>
       <Link href={href}>
