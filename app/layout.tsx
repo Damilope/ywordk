@@ -4,14 +4,17 @@ import Layout from "@/components/layout/Layout.tsx";
 import type { Metadata } from "next";
 // import { Work_Sans as FontSans } from "next/font/google";
 import { cn } from "@/components/utils.ts";
-import { Space_Grotesk as FontSans } from "next/font/google";
-import styles from "../styles/layout.module.css";
+import { Source_Code_Pro, Space_Grotesk } from "next/font/google";
 import utilStyles from "../styles/util.module.css";
 import "./globals.css";
 
-const font = FontSans({
+const defaultFont = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-default",
+});
+const codeFont = Source_Code_Pro({
+  subsets: ["latin"],
+  variable: "--font-code",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(font.variable, styles.body)}>
+      <body className={cn(defaultFont.variable, codeFont.variable)}>
         <Layout centerNodeClassName={utilStyles["main-width"]}>
           <Header />
           {children}

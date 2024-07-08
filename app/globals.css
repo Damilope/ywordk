@@ -4,6 +4,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
+  --text-secondary-rgb: 51, 65, 85;
+  --text-code-rgb: 30, 41, 59;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
@@ -11,6 +13,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
+    --text-secondary-rgb: 148, 163, 184;
+    --text-code-rgb: 226, 232, 240;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
@@ -18,6 +22,33 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-end-rgb));
+  font-family: var(--font-default), -apple-system, BlinkMacSystemFont,
+    "Work Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+body a {
+  text-decoration: underline;
+}
+
+body code {
+  font-family: var(--font-code), monospace;
+  color: rgb(var(--text-code-rgb));
+  font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 500;
 }
 
 @layer utilities {

@@ -24,5 +24,5 @@ h3.section-title {
 }
 
 .secondary-text {
-  color: #777;
+  color: rgb(var(--text-secondary-rgb));
 }
