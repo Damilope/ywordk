@@ -2,6 +2,8 @@ TODOs
 
 - add loader
 - public error rendering
+- scroll only within code
+- check dimensions for mobile devices
 - generic sections
 - themes
 - breadcrumb
