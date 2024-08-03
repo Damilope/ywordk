@@ -1,9 +1,23 @@
 [
   {
     "filename": "the-love-of-abba-for-you",
-    "createdAt": "06/20/2023",
-    "lastUpdatedAt": "06/20/2023",
+    "createdAt": "06/20/2024",
+    "lastUpdatedAt": "06/20/2024",
     "title": "Abba's Love For You",
     "description": "Encounter the love God has for you in Christ Jesus."
+  },
+  {
+    "filename": "herein-is-love",
+    "createdAt": "07/14/2024",
+    "lastUpdatedAt": "07/14/2024",
+    "title": "Herein is Love",
+    "description": "Ponder the extent of God's love for you, what manner of Love He's bestowed upon us."
+  },
+  {
+    "filename": "conjecture-on-creation",
+    "createdAt": "08/03/2024",
+    "lastUpdatedAt": "08/03/2024",
+    "title": "Conjecture on Creation",
+    "description": "Can a creator solely create something greater than itself?"
   }
 ]

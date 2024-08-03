@@ -5,3 +5,7 @@
 .itemTitle {
   margin: 2px 0px;
 }
+
+.itemPublishedDate {
+  color: #64748b;
+}

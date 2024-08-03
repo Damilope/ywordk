@@ -1,9 +1,11 @@
+import { BlogDef, BlogItemDef } from "@/lib/definitions/blog.ts";
 import { kAppRootPaths } from "@/lib/definitions/system.ts";
 import { formatDate } from "@/lib/utils/dateFns.ts";
 import Link from "next/link";
 import utilstyles from "../../styles/util.module.css";
 import { StyleableComponentProps } from "../types";
-import { BlogItemDef, BlogDef } from "@/lib/definitions/blog.ts";
+import { cn } from "../utils.ts";
+import styles from "./blog.module.css";
 
 export interface BlogItemProps extends StyleableComponentProps {
   blogItemDef: BlogItemDef;
@@ -27,7 +29,9 @@ export function BlogItem(props: BlogItemProps) {
           {blogItemDef.description}
         </div>
       )}
-      <div className={utilstyles["secondary-text"]}>
+      <div
+        className={cn(utilstyles["secondary-text"], styles.itemPublishedDate)}
+      >
         {published}
         {lastUpdated ? (
           <>
