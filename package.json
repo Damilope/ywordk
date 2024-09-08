@@ -10,6 +10,7 @@
     "build-dev": "env-cmd -f \".env.dev\" npm run build",
     "dev-prod": "env-cmd -f \".env.production\" npm run start-dev",
     "build-prod": "env-cmd -f \".env.production\" npm run build",
+    "sync-public": "env-cmd -f \".env.production\" zx sh/sync-public.mjs",
     "start-prod": "npm run build-prod && env-cmd -f \".env.production\" npm run start",
     "lint": "next lint"
   },
@@ -39,6 +40,7 @@
     "eslint-config-next": "14.2.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "zx": "^8.1.5"
   }
 }

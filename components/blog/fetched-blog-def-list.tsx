@@ -1,8 +1,8 @@
-import BlogDefListComponent from "./blog-def-list.tsx";
-import { getBlogDefList } from "./getBlogDefList.ts";
+import { useBlogTypeList } from "@/lib/hooks/useBlogTypeList.ts";
+import BlogTypeListComponent from "./blog-type-list.tsx";
 
-export async function FetchedBlogDefList() {
-  const blogDefList = await getBlogDefList();
+export async function FetchedBlogTypeList() {
+  const blogTypeList = await useBlogTypeList();
 
-  return <BlogDefListComponent blogDefList={blogDefList} />;
+  return <BlogTypeListComponent blogTypeList={blogTypeList} />;
 }

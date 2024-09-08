@@ -1,4 +1,4 @@
-import { BlogDef, BlogItemDef } from "@/lib/definitions/blog.ts";
+import { BlogEntry, BlogType } from "@/lib/definitions/blog.ts";
 import { kAppRootPaths } from "@/lib/definitions/system.ts";
 import { formatDate } from "@/lib/utils/dateFns.ts";
 import Link from "next/link";
@@ -8,13 +8,13 @@ import { cn } from "../utils.ts";
 import styles from "./blog.module.css";
 
 export interface BlogItemProps extends StyleableComponentProps {
-  blogItemDef: BlogItemDef;
-  blogDef: BlogDef;
+  blogItemDef: BlogEntry;
+  blogType: BlogType;
 }
 
 export function BlogItem(props: BlogItemProps) {
-  const { blogDef, blogItemDef, className, style } = props;
-  const href = `${kAppRootPaths.blogs}/${blogDef.pathname}/${blogItemDef.filename}`;
+  const { blogType, blogItemDef, className, style } = props;
+  const href = `${kAppRootPaths.blogs}/${blogType.pathname}/${blogItemDef.filename}`;
   const published = `Published ${formatDate(blogItemDef.createdAt)}`;
   const lastUpdated =
     blogItemDef.lastUpdatedAt !== blogItemDef.createdAt

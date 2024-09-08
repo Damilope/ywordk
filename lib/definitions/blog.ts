@@ -1,10 +1,10 @@
-export interface BlogDef {
+export interface BlogType {
   title: string;
   pathname: string;
   description?: string;
 }
 
-export interface BlogItemDef {
+export interface BlogEntry {
   /** filename without ext */
   filename: string;
   createdAt: string;
@@ -13,5 +13,5 @@ export interface BlogItemDef {
   description?: string;
 }
 
-export type BlogDefList = BlogDef[];
-export type BlogItemDefList = BlogItemDef[];
+export type BlogTypeList = BlogType[];
+export type BlogEntryList = BlogEntry[];

@@ -1,23 +1,7 @@
-import { kConstants } from "@/lib/definitions/system.ts";
+import { useBlogContent } from "@/lib/hooks/useBlogContent.ts";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import fetch from "node-fetch";
+import Head from "next/head";
 import utilstyles from "../../styles/util.module.css";
-
-// TODO: use a TTL map so cached data can refresh
-const blogContentMap = new Map<string, string>();
-
-async function getBlogContent(pathname: string, filename: string) {
-  const filepath = kConstants.blogsFile(pathname, filename);
-  const filepathURL = kConstants.getURL(filepath);
-
-  // TODO: set an appropriate cache policy
-  const response = await fetch(filepathURL, {
-    // cache: "no-cache"
-  });
-  const content = await response.text();
-
-  return content;
-}
 
 export interface BlogContentProps {
   pathname: string;
@@ -26,10 +10,13 @@ export interface BlogContentProps {
 
 export default async function BlogContent(props: BlogContentProps) {
   const { pathname, filename } = props;
-  const content = await getBlogContent(pathname, filename);
+  const { content, item } = await useBlogContent(pathname, filename);
 
   return (
     <div className={utilstyles.section}>
+      <Head>
+        <title>{item?.title}</title>
+      </Head>
       <MDXRemote source={content} />
     </div>
   );

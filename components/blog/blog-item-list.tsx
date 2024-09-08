@@ -1,4 +1,4 @@
-import { BlogDef, BlogItemDef } from "@/lib/definitions/blog.ts";
+import { BlogEntry, BlogType } from "@/lib/definitions/blog.ts";
 import { useMemo } from "react";
 import utilstyles from "../../styles/util.module.css";
 import { cn } from "../utils.ts";
@@ -6,12 +6,12 @@ import { BlogItem } from "./blog-item.tsx";
 import styles from "./blog.module.css";
 
 export interface BlogItemListProps {
-  blogDef: BlogDef;
-  blogList: BlogItemDef[];
+  blogType: BlogType;
+  blogList: BlogEntry[];
 }
 
 export default function BlogItemList(props: BlogItemListProps) {
-  const { blogList, blogDef } = props;
+  const { blogList, blogType } = props;
 
   const sortedItems = useMemo(
     () =>
@@ -25,12 +25,12 @@ export default function BlogItemList(props: BlogItemListProps) {
 
   return (
     <div className={cn(utilstyles.section, utilstyles["main-width"])}>
-      <h3 className={utilstyles["section-title"]}>{blogDef.title}</h3>
+      <h3 className={utilstyles["section-title"]}>{blogType.title}</h3>
       {sortedItems.map((blog) => (
         <BlogItem
           key={blog.filename}
           blogItemDef={blog}
-          blogDef={blogDef}
+          blogType={blogType}
           className={styles.item}
         />
       ))}

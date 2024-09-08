@@ -1,17 +1,17 @@
-import { BlogDefList } from "@/lib/definitions/blog.ts";
+import { BlogTypeList } from "@/lib/definitions/blog.ts";
 import { kAppRootPaths } from "@/lib/definitions/system.ts";
 import Link from "next/link";
 import utilstyles from "../../styles/util.module.css";
 import { cn } from "../utils.ts";
-import { BlogDefComponent } from "./blog-def-item.tsx";
+import { BlogTypeComponent } from "./blog-type-item.tsx";
 import styles from "./blog.module.css";
 
-export interface BlogDefListProps {
-  blogDefList: BlogDefList;
+export interface BlogTypeListProps {
+  blogTypeList: BlogTypeList;
 }
 
-export default function BlogDefListComponent(props: BlogDefListProps) {
-  const { blogDefList } = props;
+export default function BlogTypeListComponent(props: BlogTypeListProps) {
+  const { blogTypeList } = props;
   const href = `${kAppRootPaths.blogs}`;
 
   return (
@@ -19,10 +19,10 @@ export default function BlogDefListComponent(props: BlogDefListProps) {
       <Link href={href}>
         <h3 className={utilstyles["section-title"]}>Blogs</h3>
       </Link>
-      {blogDefList.map((blogDef) => (
-        <BlogDefComponent
-          key={blogDef.pathname}
-          blogDef={blogDef}
+      {blogTypeList.map((blogType) => (
+        <BlogTypeComponent
+          key={blogType.pathname}
+          blogType={blogType}
           className={styles.item}
         />
       ))}

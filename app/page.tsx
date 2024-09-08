@@ -1,6 +1,6 @@
 "use server";
 
-import { FetchedBlogDefList } from "@/components/blog/fetched-blog-def-list.tsx";
+import { FetchedBlogTypeList } from "@/components/blog/fetched-blog-def-list.tsx";
 import { FetchedBookItemList } from "@/components/book/fetched-book-item-list.tsx";
 import { FetchedProjectItemList } from "@/components/project/fetched-project-item-list.tsx";
 import { cn } from "@/components/utils.ts";
@@ -42,7 +42,7 @@ export default async function Home({}: Props) {
         </p>
       </div>
       <FetchedBookItemList />
-      <FetchedBlogDefList />
+      <FetchedBlogTypeList />
       <FetchedProjectItemList />
     </main>
   );
