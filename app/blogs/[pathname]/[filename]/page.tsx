@@ -9,11 +9,13 @@ export interface BlogFilePageProps {
   };
 }
 
+const getBlogContentInfo = useBlogContentInfo;
+
 export async function generateMetadata(
   props: BlogFilePageProps
 ): Promise<Metadata> {
   const { pathname, filename } = props.params;
-  const { item } = await useBlogContentInfo(pathname, filename);
+  const { item } = await getBlogContentInfo(pathname, filename);
 
   return {
     title: item?.title,

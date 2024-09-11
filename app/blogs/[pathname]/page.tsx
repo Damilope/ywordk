@@ -8,11 +8,13 @@ export interface blogTypePageProps {
   };
 }
 
+const getBlogType = useBlogType;
+
 export async function generateMetadata(
   props: blogTypePageProps
 ): Promise<Metadata> {
   const { pathname } = props.params;
-  const { blogType } = await useBlogType(pathname);
+  const { blogType } = await getBlogType(pathname);
 
   return {
     title: blogType?.title,
