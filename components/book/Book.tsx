@@ -1,6 +1,7 @@
 import { BookItemDef } from "@/lib/definitions/book.ts";
-import { kAppRootPaths, kConstants } from "@/lib/definitions/system.ts";
+import { kConstants } from "@/lib/definitions/system.ts";
 import assert from "assert";
+import { getFimidaraReadFileURL } from "fimidara";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import fetch from "node-fetch";
 import { normalize } from "path";
@@ -53,16 +54,22 @@ export interface BookContentProps {
 export default async function BookContent(props: BookContentProps) {
   const { id } = props;
   const { def, description } = await getBookContent(id);
-  const href = `${kAppRootPaths.books}/${def.key}/${def.filename}`;
 
   return (
     <div>
       <h1 className={cn(utilstyles.title, utilstyles.section)}>{def.title}</h1>
-      <div className={utilstyles.section}>
+      <div className={cn(utilstyles.section, "space-y-4")}>
         <div className={cn(styles["download-link-container"])}>
-          <a href={href} target="_blank" rel="noreferrer">
+          <a
+            href={getFimidaraReadFileURL({
+              filepath: def.fimidarapath,
+              download: true,
+            })}
+            target="_blank"
+            rel="noreferrer"
+          >
             <span className={styles.icon}>
-              <HiOutlineDocumentDownload />
+              <HiOutlineDocumentDownload className="h-4 w-4" />
             </span>
             Download book in pdf
           </a>

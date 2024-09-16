@@ -2,6 +2,7 @@ export interface BookItemDef {
   key: string;
   /** filename with ext */
   filename: string;
+  fimidarapath: string;
   createdAt: string;
   lastUpdatedAt: string;
   title: string;

@@ -5,4 +5,7 @@ if (!authToken) {
   throw new Error("provide FIMIDARA_AUTH_TOKEN env var");
 }
 
-await $`npx --yes -- fimidara sync -f "ywordk/ywordk/public" -l "public" -d "up" -r -m -t "${authToken}"`;
+const p =
+  await $`npx --yes -- fimidara sync -f "ywordk/ywordk/public" -l "public" -d "up" -r -m -t "${authToken}"`;
+console.log(p.stderr);
+console.log(p.stdout);
