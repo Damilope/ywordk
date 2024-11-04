@@ -1,4 +1,4 @@
-import BlogContent from "@/components/blog/Blog.tsx";
+import FetchBlogContent from "@/components/blog/fetch-blog";
 import { useBlogContentInfo } from "@/lib/hooks/useBlogContent.ts";
 import { Metadata } from "next";
 
@@ -32,5 +32,5 @@ export async function generateMetadata(
 export default function BlogFilePage(props: BlogFilePageProps) {
   const { params } = props;
 
-  return <BlogContent {...params} />;
+  return <FetchBlogContent {...params} />;
 }

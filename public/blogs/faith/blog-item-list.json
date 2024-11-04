@@ -1,37 +1,38 @@
 [
   {
-    "filename": "the-love-of-abba-for-you",
-    "createdAt": "06/20/2024",
-    "lastUpdatedAt": "06/20/2024",
-    "title": "Abba's Love For You",
-    "description": "Encounter the love God has for you in Christ Jesus."
-  },
-  {
-    "filename": "herein-is-love",
-    "createdAt": "07/14/2024",
-    "lastUpdatedAt": "07/14/2024",
-    "title": "Herein is Love",
-    "description": "Ponder the extent of God's love for you, what manner of Love He's bestowed upon us."
+    "filename": "by-grace-through-faith",
+    "createdAt": "2024-10-01T02:39:34.933Z",
+    "lastUpdatedAt": "2024-11-04T00:32:39.406Z",
+    "title": "By Grace Through Faith",
+    "description": "A short look at grace through faith."
   },
   {
     "filename": "conjecture-on-creation",
-    "createdAt": "08/03/2024",
-    "lastUpdatedAt": "08/03/2024",
+    "createdAt": "2024-08-03T23:24:03.705Z",
+    "lastUpdatedAt": "2024-11-04T00:33:04.152Z",
     "title": "Conjecture on Creation",
     "description": "Can a creator solely create something greater than itself?"
   },
   {
+    "filename": "herein-is-love",
+    "createdAt": "2024-07-15T02:56:47.851Z",
+    "lastUpdatedAt": "2024-11-04T00:33:24.440Z",
+    "title": "Herein is Love",
+    "description": "Ponder the extent of God's love for you, what manner of Love He's bestowed upon us."
+  },
+  {
     "filename": "pray",
-    "createdAt": "09/02/2024",
-    "lastUpdatedAt": "09/02/2024",
+    "createdAt": "2024-09-02T23:36:46.890Z",
+    "lastUpdatedAt": "2024-11-04T00:34:04.745Z",
     "title": "So we pray",
     "description": "Why and when should we pray?"
   },
   {
-    "filename": "by-grace-through-faith",
-    "createdAt": "10/01/2024",
-    "lastUpdatedAt": "10/01/2024",
-    "title": "By Grace Through Faith",
-    "description": "A short look at grace through faith."
+    "filename": "the-love-of-abba-for-you",
+    "createdAt": "2024-06-11T02:10:15.951Z",
+    "lastUpdatedAt": "2024-11-04T00:47:44.326Z",
+    "title": "Abba's Love For You",
+    "description": "Encounter the love God has for you in Christ Jesus.",
+    "pinned": true
   }
 ]

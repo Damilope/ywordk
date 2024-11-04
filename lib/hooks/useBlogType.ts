@@ -24,9 +24,21 @@ export async function useBlogTypeAndItems(pathname: string) {
 
   // TODO: set an appropriate cache policy
   const response = await fetch(filepathURL, {
-    // cache: "no-cache"
+    cache: "no-cache",
   });
-  const blogItemsList = await response.json();
+  const blogItemsList = (await response.json()) as BlogEntryList;
+  blogItemsList.sort((a, b) => {
+    const aTime = new Date(a.createdAt).getTime();
+    const bTime = new Date(b.createdAt).getTime();
+    const aPinned = a.pinned ? 1 : 0;
+    const bPinned = b.pinned ? 1 : 0;
 
-  return { def: blogType, items: blogItemsList as BlogEntryList };
+    if (aPinned < bPinned) return 1;
+    if (aPinned > bPinned) return -1;
+    if (aTime < bTime) return 1;
+    if (aTime > bTime) return -1;
+    return 0;
+  });
+
+  return { def: blogType, items: blogItemsList };
 }

@@ -11,6 +11,7 @@ export interface BlogEntry {
   lastUpdatedAt: string;
   title: string;
   description?: string;
+  pinned?: boolean;
 }
 
 export type BlogTypeList = BlogType[];

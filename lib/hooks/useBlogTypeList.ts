@@ -10,7 +10,7 @@ export async function useBlogTypeList() {
 
   // TODO: set an appropriate cache policy
   const response = await fetch(filepathURL, {
-    // cache: "no-cache"
+    cache: "no-cache",
   });
   const blogTypeList = await response.json();
 

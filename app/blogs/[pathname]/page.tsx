@@ -28,7 +28,7 @@ export async function generateMetadata(
   };
 }
 
-export default function blogTypePage(props: blogTypePageProps) {
+export default function BlogTypePage(props: blogTypePageProps) {
   const { params } = props;
   const { pathname } = params;
 

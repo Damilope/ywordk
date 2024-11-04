@@ -2,10 +2,10 @@ import { kConstants } from "../definitions/system.ts";
 import { useBlogTypeAndItems } from "./useBlogType.ts";
 
 export async function useBlogContentInfo(pathname: string, filename: string) {
-  const { items } = await useBlogTypeAndItems(pathname);
+  const { items, def } = await useBlogTypeAndItems(pathname);
   const item = items.find((item) => item.filename === filename);
 
-  return { item };
+  return { item, def };
 }
 
 export async function useBlogContent(pathname: string, filename: string) {
@@ -14,10 +14,10 @@ export async function useBlogContent(pathname: string, filename: string) {
 
   // TODO: set an appropriate cache policy
   const response = await fetch(filepathURL, {
-    // cache: "no-cache"
+    cache: "no-cache",
   });
   const content = await response.text();
 
-  const { item } = await useBlogContentInfo(pathname, filename);
-  return { content, item };
+  const { item, def } = await useBlogContentInfo(pathname, filename);
+  return { content, item, def };
 }

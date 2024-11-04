@@ -1,6 +1,7 @@
 import { BlogEntry, BlogType } from "@/lib/definitions/blog.ts";
 import { kAppRootPaths } from "@/lib/definitions/system.ts";
 import { formatDate } from "@/lib/utils/dateFns.ts";
+import { Pin } from "lucide-react";
 import Link from "next/link";
 import utilstyles from "../../styles/util.module.css";
 import { StyleableComponentProps } from "../types";
@@ -23,7 +24,10 @@ export function BlogItem(props: BlogItemProps) {
 
   return (
     <div className={className} style={style}>
-      <Link href={href}>{blogItemDef.title}</Link>
+      <div className="flex items-center space-x-2">
+        {blogItemDef.pinned && <Pin className="w-4 h-4" />}
+        <Link href={href}>{blogItemDef.title}</Link>
+      </div>
       {blogItemDef.description && (
         <div className={utilstyles["secondary-text"]}>
           {blogItemDef.description}

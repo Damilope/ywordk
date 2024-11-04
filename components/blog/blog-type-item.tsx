@@ -1,5 +1,5 @@
 import { BlogType } from "@/lib/definitions/blog.ts";
-import { kAppRootPaths } from "@/lib/definitions/system.ts";
+import { kAppPaths } from "@/lib/definitions/paths.ts";
 import Link from "next/link";
 import utilstyles from "../../styles/util.module.css";
 import { StyleableComponentProps } from "../types";
@@ -11,7 +11,7 @@ export interface BlogTypeProps extends StyleableComponentProps {
 
 export function BlogTypeComponent(props: BlogTypeProps) {
   const { blogType, className, style } = props;
-  const href = `${kAppRootPaths.blogs}/${blogType.pathname}`;
+  const href = kAppPaths.blogType(blogType.pathname);
 
   return (
     <div className={className} style={style}>

@@ -1,15 +1,17 @@
 import mdxNext from "@next/mdx";
+import rehypeHighlight from "rehype-highlight";
 
-const withMDX = mdxNext();
+const withMDX = mdxNext({
+  options: {
+    rehypePlugins: [rehypeHighlight],
+  },
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
-  experimental: {
-    instrumentationHook: true,
-  },
 };
 
 export default withMDX(nextConfig);

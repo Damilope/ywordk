@@ -28,7 +28,7 @@ export async function generateMetadata(
 export default async function Home({}: Props) {
   return (
     <main>
-      <div className={utilStyles.section}>
+      <div className={cn(utilStyles.section, "space-y-2")}>
         <h1 className={cn(utilStyles.title)}>
           Abayomi <br />
           Akintomide

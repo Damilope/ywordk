@@ -3,16 +3,12 @@ import { kConstants } from "@/lib/definitions/system.ts";
 import assert from "assert";
 import { getFimidaraReadFileURL } from "fimidara";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import fetch from "node-fetch";
 import { normalize } from "path";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
 import utilstyles from "../../styles/util.module.css";
 import { cn } from "../utils.ts";
 import styles from "./book.module.css";
 import { getBookDefList } from "./getBookItemList.ts";
-
-// TODO: use a TTL map so cached data can refresh
-const bookContentMap = new Map<string, string>();
 
 async function getBookDescription(
   book: BookItemDef
@@ -28,7 +24,7 @@ async function getBookDescription(
     const filepathURL = kConstants.getURL(filepath);
     // TODO: set an appropriate cache policy
     const response = await fetch(filepathURL, {
-      // cache: "no-cache"
+      cache: "no-cache",
     });
     const content = await response.text();
     return content;
