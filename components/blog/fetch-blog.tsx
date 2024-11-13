@@ -8,7 +8,18 @@ export interface FetchBlogContentProps {
 
 export default async function FetchBlogContent(props: FetchBlogContentProps) {
   const { pathname, filename } = props;
-  const { content, item, def } = await useBlogContent(pathname, filename);
+  const { content, item, def, next, prev } = await useBlogContent(
+    pathname,
+    filename
+  );
 
-  return <RenderBlogContent content={content} item={item} def={def} />;
+  return (
+    <RenderBlogContent
+      content={content}
+      item={item}
+      def={def}
+      next={next}
+      prev={prev}
+    />
+  );
 }

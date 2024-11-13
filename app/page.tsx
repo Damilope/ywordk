@@ -37,8 +37,8 @@ export default async function Home({}: Props) {
           Hi there, I&apos;m Abayomi, son of God. I love spending time with God,
           studying Scripture, programming & engineering software, design,
           writing, thinking... I also love spending time with & being around
-          friends, the sometime menial tasks, calling my mom after the blue moon
-          😭...
+          friends, doing the some time menial tasks, calling my mom after the
+          ocassional blue moon 😭...
         </p>
       </div>
       <FetchedBookItemList />

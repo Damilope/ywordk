@@ -2,11 +2,21 @@
   {
     "title": "faith",
     "pathname": "faith",
-    "description": "My thoughts on Faith, particularly, Christian Faith."
+    "description": "My thoughts on faith, particularly, Christian faith."
   },
   {
     "title": "overengineered",
     "pathname": "overengineered",
     "description": "Engineering shenanigans!"
+  },
+  {
+    "title": "philosophy",
+    "pathname": "philosophy",
+    "description": "My thoughts on Philosophy."
+  },
+  {
+    "title": "poems",
+    "pathname": "poems",
+    "description": "Poems I've written."
   }
 ]

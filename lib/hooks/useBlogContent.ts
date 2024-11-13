@@ -3,9 +3,12 @@ import { useBlogTypeAndItems } from "./useBlogType.ts";
 
 export async function useBlogContentInfo(pathname: string, filename: string) {
   const { items, def } = await useBlogTypeAndItems(pathname);
-  const item = items.find((item) => item.filename === filename);
+  const itemIndex = items.findIndex((item) => item.filename === filename);
+  const item = items[itemIndex];
+  const prev = items[itemIndex - 1];
+  const next = items[itemIndex + 1];
 
-  return { item, def };
+  return { item, def, prev, next };
 }
 
 export async function useBlogContent(pathname: string, filename: string) {
@@ -18,6 +21,9 @@ export async function useBlogContent(pathname: string, filename: string) {
   });
   const content = await response.text();
 
-  const { item, def } = await useBlogContentInfo(pathname, filename);
-  return { content, item, def };
+  const { item, def, next, prev } = await useBlogContentInfo(
+    pathname,
+    filename
+  );
+  return { content, item, def, next, prev };
 }

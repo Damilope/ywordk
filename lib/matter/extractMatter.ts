@@ -31,10 +31,6 @@ async function extractBlogEntry(filepath: string): Promise<BlogEntry> {
   ]);
 
   assert.ok(isString(matter.title), `title is required in ${filepath}`);
-  assert.ok(
-    isString(matter.description),
-    `description is required in ${filepath}`
-  );
 
   return {
     ...stats,
