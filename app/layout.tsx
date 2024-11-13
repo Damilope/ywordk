@@ -5,6 +5,7 @@ import Layout from "@/components/layout/Layout.tsx";
 import { cn } from "@/components/utils.ts";
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Source_Code_Pro } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 import utilStyles from "../styles/util.module.css";
 import "./globals.css";
 
@@ -38,6 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body className={cn(defaultFont.variable, codeFont.variable)}>
+        <NextTopLoader />
         <StateProvider>
           <Layout centerNodeClassName={utilStyles["main-width"]}>
             <Header />

@@ -9,18 +9,12 @@
 ## Later
 
 - SEO and similar tags
-- code overflow
-- add loader
 - public error rendering
-- scroll only within code
-- check dimensions for mobile devices
-- generic sections
-- themes
-- breadcrumb
 - book picture
-- no inline text but use mdx files for texting
-- externally backed files
-- md title
+- no inline text but use mdx files for texting - homepage
 - add bookmark
 - robot and seo optimization
 - add current page to breadcrumbs
+- dark mode
+- comments
+- subscribe
