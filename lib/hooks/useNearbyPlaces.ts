@@ -1,3 +1,5 @@
+"use client";
+
 import useSWR from "swr";
 import { NearbyPlace } from "../definitions/nearby.ts";
 

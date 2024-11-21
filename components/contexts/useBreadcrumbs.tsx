@@ -19,5 +19,6 @@ export function useSetPageBreadcrumbs(
     return () => {
       set?.({ breadcrumbs: undefined });
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [crumbs]);
 }

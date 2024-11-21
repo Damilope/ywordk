@@ -1,13 +1,14 @@
 import { loadPlace } from "@/lib/maps/loader.ts";
 import assert from "assert";
 import { isNumber, isString } from "lodash-es";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest } from "next/server";
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest) {
   try {
     const { Place, SearchNearbyRankPreference } = await loadPlace();
 
-    const { lat, lng, type } = req.body || {};
+    // TODO: check if the request body is valid and is json
+    const { lat, lng, type } = await req.json();
     assert.ok(isNumber(lat), "lat must be a number");
     assert.ok(isNumber(lng), "lng must be a number");
     assert.ok(isString(type), "type must be a string");
@@ -37,13 +38,13 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 
     //@ts-ignore
     const { places } = await Place.searchNearby(request);
-    res.status(200).json(places);
+    return Response.json({ places });
   } catch (error) {
     console.error(error);
     if (error instanceof assert.AssertionError) {
-      return res.status(400).json({ error: error.message });
+      return Response.json({ error: error.message }, { status: 400 });
     }
 
-    res.status(500).json({ error: "Internal Server Error" });
+    return Response.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
