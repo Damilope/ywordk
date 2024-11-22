@@ -1,7 +1,6 @@
 import { BlogEntry, BlogType } from "@/lib/definitions/blog.ts";
 import { kAppPaths } from "@/lib/definitions/paths.ts";
 import { kAppRootPaths } from "@/lib/definitions/system.ts";
-import { cn } from "@/lib/utils.ts";
 import {
   Tooltip,
   TooltipContent,
@@ -16,6 +15,7 @@ import rehypeHighlight from "rehype-highlight";
 import utilstyles from "../../styles/util.module.css";
 import Breadcrumbs from "../contexts/breadcrumbs.tsx";
 import { Button } from "../ui/button.tsx";
+import { cn } from "../utils.ts";
 
 interface RenderBlogNavButtonsProps {
   def: BlogType;
@@ -27,6 +27,7 @@ interface RenderBlogNavButtonProps {
   href: string;
   title: string;
   direction: "left" | "right";
+  className?: string;
 }
 
 export interface RenderBlogContentProps extends RenderBlogNavButtonsProps {
@@ -36,21 +37,24 @@ export interface RenderBlogContentProps extends RenderBlogNavButtonsProps {
 }
 
 function RenderBlogNavButton(props: RenderBlogNavButtonProps) {
-  const { direction, title, href } = props;
+  const { direction, title, href, className } = props;
 
   return (
-    <div
-      className={cn("absolute top-0 flex items-center h-screen", {
-        "left-0": direction === "left",
-        "right-0": direction === "right",
-      })}
-    >
+    <div className={className}>
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
             <Link href={href}>
-              <Button variant="outline" size="icon">
-                {direction === "left" ? <ChevronLeft /> : <ChevronRight />}
+              <Button
+                variant="link"
+                className={cn(className, {
+                  "pl-0": direction === "left",
+                  "pr-0": direction === "right",
+                })}
+              >
+                {direction === "left" && <ChevronLeft />}
+                {direction === "left" ? "Previous" : "Next"}
+                {direction === "right" && <ChevronRight />}
               </Button>
             </Link>
           </TooltipTrigger>
@@ -70,22 +74,26 @@ function RenderBlogNavButtons(props: RenderBlogNavButtonsProps) {
   const nextHref = next ? kAppPaths.blogItem(def.pathname, next.filename) : "";
 
   return (
-    <>
-      {prev && (
+    <div className="flex mt-8 justify-between">
+      {prev ? (
         <RenderBlogNavButton
           href={prevHref}
           title={prev.title}
           direction="left"
+          className="justify-self-start"
         />
+      ) : (
+        <div />
       )}
       {next && (
         <RenderBlogNavButton
           href={nextHref}
           title={next.title}
           direction="right"
+          className="justify-self-end"
         />
       )}
-    </>
+    </div>
   );
 }
 

@@ -53,7 +53,7 @@ export const Shuffler: React.FC<{}> = () => {
 
       <div className="space-y-4">
         <div className="flex space-x-4">
-          <div className="grid max-w-64 items-center gap-1.5">
+          <div className="grid max-w-32 items-center gap-1.5">
             <Label htmlFor="cards">Cards</Label>
             <Input
               id="cards"
@@ -65,7 +65,7 @@ export const Shuffler: React.FC<{}> = () => {
           </div>
 
           {activeTab === kTabs.deal && (
-            <div className="grid max-w-64 items-center gap-1.5">
+            <div className="grid max-w-32 items-center gap-1.5">
               <Label htmlFor="players">Players</Label>
               <Input
                 id="players"
