@@ -87,7 +87,7 @@ export const Shuffler: React.FC<{}> = () => {
           {activeTab === kTabs.deal && (
             <Button
               onClick={handleDealCards}
-              disabled={!(numCards || numPlayers)}
+              disabled={!(numCards && numPlayers)}
             >
               Deal
             </Button>
