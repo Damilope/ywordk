@@ -2,7 +2,6 @@ import { BookItemDef } from "@/lib/definitions/book.ts";
 import { kAppRootPaths } from "@/lib/definitions/system.ts";
 import { formatDate } from "@/lib/utils/dateFns.ts";
 import Link from "next/link";
-import utilstyles from "../../styles/util.module.css";
 import { StyleableComponentProps } from "../types";
 
 export interface BookItemProps extends StyleableComponentProps {
@@ -23,11 +22,11 @@ export function BookItem(props: BookItemProps) {
     <div className={className} style={style}>
       <Link href={href}>{bookItemDef.title}</Link>
       {bookItemDef.description && (
-        <div className={utilstyles["secondary-text"]}>
+        <div className="text-sm text-muted-foreground">
           {bookItemDef.description}
         </div>
       )}
-      <div className={utilstyles["secondary-text"]}>
+      <div className="text-sm text-muted-foreground">
         {published}
         {lastUpdated ? (
           <>

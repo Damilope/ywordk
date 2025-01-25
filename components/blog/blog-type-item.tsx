@@ -1,7 +1,6 @@
 import { BlogType } from "@/lib/definitions/blog.ts";
 import { kAppPaths } from "@/lib/definitions/paths.ts";
 import Link from "next/link";
-import utilstyles from "../../styles/util.module.css";
 import { StyleableComponentProps } from "../types";
 import styles from "./blog.module.css";
 
@@ -19,7 +18,7 @@ export function BlogTypeComponent(props: BlogTypeProps) {
         <h4 className={styles.itemTitle}>{blogType.title}</h4>
       </Link>
       {blogType.description && (
-        <div className={utilstyles["secondary-text"]}>
+        <div className="text-sm text-muted-foreground">
           {blogType.description}
         </div>
       )}

@@ -3,10 +3,7 @@ import { kAppRootPaths } from "@/lib/definitions/system.ts";
 import { formatDate } from "@/lib/utils/dateFns.ts";
 import { Pin } from "lucide-react";
 import Link from "next/link";
-import utilstyles from "../../styles/util.module.css";
 import { StyleableComponentProps } from "../types";
-import { cn } from "../utils.ts";
-import styles from "./blog.module.css";
 
 export interface BlogItemProps extends StyleableComponentProps {
   blogItemDef: BlogEntry;
@@ -25,17 +22,17 @@ export function BlogItem(props: BlogItemProps) {
   return (
     <div className={className} style={style}>
       <div className="flex items-center space-x-2">
-        {blogItemDef.pinned && <Pin className="w-4 h-4" />}
+        {blogItemDef.pinned && (
+          <Pin className="w-4 h-4 text-muted-foreground" />
+        )}
         <Link href={href}>{blogItemDef.title}</Link>
       </div>
       {blogItemDef.description && (
-        <div className={utilstyles["secondary-text"]}>
+        <div className="text-sm text-muted-foreground">
           {blogItemDef.description}
         </div>
       )}
-      <div
-        className={cn(utilstyles["secondary-text"], styles.itemPublishedDate)}
-      >
+      <div className="text-sm text-muted-foreground">
         {published}
         {lastUpdated ? (
           <>

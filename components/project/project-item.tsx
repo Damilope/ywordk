@@ -1,5 +1,4 @@
 import { ProjectItemDef } from "@/lib/definitions/project.ts";
-import utilStyles from "../../styles/util.module.css";
 import { StyleableComponentProps } from "../types";
 
 export interface ProjectItemProps extends StyleableComponentProps {
@@ -15,10 +14,9 @@ export function ProjectItem(props: ProjectItemProps) {
         {projectItemDef.title}
       </a>
       {projectItemDef.description && (
-        <span className={utilStyles["secondary-text"]}>
-          {" "}
-          — {projectItemDef.description}
-        </span>
+        <div className="text-sm text-muted-foreground">
+          {projectItemDef.description}
+        </div>
       )}
     </div>
   );

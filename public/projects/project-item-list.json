@@ -4,5 +4,17 @@
     "title": "fimidara",
     "href": "https://www.fimidara.com",
     "description": "A file storage service for developers."
+  },
+  {
+    "key": "ywordk",
+    "title": "ywordk",
+    "href": "https://www.ywordk.com",
+    "description": "My personal website."
+  },
+  {
+    "key": "ywordk.calendar",
+    "title": "ywordk - calendar",
+    "href": "https://www.ywordk.com/calendar",
+    "description": "A simple calendar."
   }
 ]
