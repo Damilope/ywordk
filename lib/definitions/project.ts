@@ -6,6 +6,10 @@ export interface ProjectItemDef {
   description?: string;
   /** filename with ext */
   // descriptionMd?: string;
+  urls?: Array<{
+    name: string;
+    url: string;
+  }>;
 }
 
 export type ProjectItemDefList = ProjectItemDef[];

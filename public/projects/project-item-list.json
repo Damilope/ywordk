@@ -3,18 +3,64 @@
     "key": "fimidara",
     "title": "fimidara",
     "href": "https://www.fimidara.com",
-    "description": "A file storage service for developers."
+    "description": "A file storage service for developers.",
+    "urls": [
+      {
+        "name": "server - github",
+        "url": "https://github.com/softkave/fimidara-server-node"
+      },
+      {
+        "name": "nextjs client - github",
+        "url": "https://github.com/softkave/fimidara-nextjs"
+      }
+    ]
   },
   {
     "key": "ywordk",
     "title": "ywordk",
     "href": "https://www.ywordk.com",
-    "description": "My personal website."
+    "description": "My personal website.",
+    "urls": [
+      {
+        "name": "github",
+        "url": "https://github.com/Damilope/ywordk"
+      }
+    ]
   },
   {
     "key": "ywordk.calendar",
     "title": "ywordk - calendar",
     "href": "https://www.ywordk.com/calendar",
-    "description": "A simple calendar."
+    "description": "A simple calendar.",
+    "urls": [
+      {
+        "name": "github",
+        "url": "https://github.com/Damilope/ywordk/tree/master/components/calendar"
+      }
+    ]
+  },
+  {
+    "key": "ywordk.clock",
+    "title": "ywordk - clock",
+    "href": "https://www.ywordk.com/clock",
+    "description": "A simple clock.",
+    "urls": [
+      {
+        "name": "github",
+        "url": "https://github.com/Damilope/ywordk/tree/master/components/clock"
+      }
+    ]
+  },
+  {
+    "key": "ywordk.shuffler",
+    "title": "ywordk - shuffler",
+    "href": "https://www.ywordk.com/shuffler",
+    "description": "A simple shuffler.",
+    "urls": [
+      {
+        "name": "github",
+        "url": "https://github.com/Damilope/ywordk/tree/master/components/shuffler"
+      }
+    ]
   }
 ]
