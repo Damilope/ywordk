@@ -36,4 +36,5 @@ export const kAppRootPaths = {
   books: "/books",
   projects: "/projects",
   calendar: "/calendar",
+  clocks: "/clocks",
 };
