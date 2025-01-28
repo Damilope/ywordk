@@ -1,4 +1,5 @@
 import { ProjectItemDef } from "@/lib/definitions/project.ts";
+import React from "react";
 import { StyleableComponentProps } from "../types";
 import { Separator } from "../ui/separator.tsx";
 
@@ -22,9 +23,8 @@ export function ProjectItem(props: ProjectItemProps) {
       {projectItemDef.urls && (
         <div className="flex gap-4 items-center">
           {projectItemDef.urls.map((url, index) => (
-            <>
+            <React.Fragment key={url.name}>
               <a
-                key={url.name}
                 href={url.url}
                 target="_blank"
                 rel="noreferrer"
@@ -36,7 +36,7 @@ export function ProjectItem(props: ProjectItemProps) {
                 index < projectItemDef.urls.length - 1 && (
                   <Separator orientation="vertical" className="h-4" />
                 )}
-            </>
+            </React.Fragment>
           ))}
         </div>
       )}
