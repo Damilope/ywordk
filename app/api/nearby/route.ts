@@ -2,6 +2,7 @@ import { loadPlace } from "@/lib/maps/loader.ts";
 import assert from "assert";
 import { isNumber, isString } from "lodash-es";
 import { NextRequest } from "next/server";
+import { fimidxConsoleLogger } from "softkave-node-utils/common";
 
 export async function POST(req: NextRequest) {
   try {
@@ -40,7 +41,7 @@ export async function POST(req: NextRequest) {
     const { places } = await Place.searchNearby(request);
     return Response.json({ places });
   } catch (error) {
-    console.error(error);
+    fimidxConsoleLogger.error(error);
     if (error instanceof assert.AssertionError) {
       return Response.json({ error: error.message }, { status: 400 });
     }

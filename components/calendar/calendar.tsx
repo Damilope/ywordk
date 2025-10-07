@@ -11,9 +11,12 @@ import { SelectYear } from "./select-year.tsx";
 
 export function Calendar() {
   const [year, setYear] = useState(() => new Date().getFullYear().toString());
-  const [month, setMonth] = useState(() =>
-    getMonthName(new Date(Number(year), 0, 1).getMonth())
-  );
+  const [month, setMonth] = useState(() => {
+    const date = new Date();
+    const month = date.getMonth();
+    const monthName = getMonthName(month);
+    return monthName;
+  });
 
   return (
     <>

@@ -6,11 +6,11 @@
     "description": "A file storage service for developers.",
     "urls": [
       {
-        "name": "server - github",
+        "name": "server code — github",
         "url": "https://github.com/softkave/fimidara-server-node"
       },
       {
-        "name": "nextjs client - github",
+        "name": "nextjs client code — github",
         "url": "https://github.com/softkave/fimidara-nextjs"
       }
     ]
@@ -28,8 +28,31 @@
     ]
   },
   {
+    "key": "fimipost",
+    "title": "fimipost",
+    "href": "https://fimipost.ywordk.com",
+    "description": "A simple writing platform."
+  },
+  {
+    "key": "chorebuddy",
+    "title": "chorebuddy",
+    "href": "https://chorebuddy.fimidara.com",
+    "description": "A simple chore management application."
+  },
+  {
+    "key": "fimiproxy",
+    "title": "fimiproxy",
+    "description": "A simple HTTP | HTTPS | WS | WSS reverse proxy.",
+    "urls": [
+      {
+        "name": "github",
+        "url": "https://github.com/softkave/fimiproxy"
+      }
+    ]
+  },
+  {
     "key": "ywordk.calendar",
-    "title": "ywordk - calendar",
+    "title": "ywordk — calendar",
     "href": "https://www.ywordk.com/calendar",
     "description": "A simple calendar.",
     "urls": [
@@ -41,7 +64,7 @@
   },
   {
     "key": "ywordk.clock",
-    "title": "ywordk - clock",
+    "title": "ywordk — clock",
     "href": "https://www.ywordk.com/clock",
     "description": "A simple clock.",
     "urls": [
@@ -53,7 +76,7 @@
   },
   {
     "key": "ywordk.shuffler",
-    "title": "ywordk - shuffler",
+    "title": "ywordk — shuffler",
     "href": "https://www.ywordk.com/shuffler",
     "description": "A simple shuffler.",
     "urls": [

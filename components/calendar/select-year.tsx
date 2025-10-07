@@ -59,8 +59,6 @@ export function SelectYear({ value, onChange, className }: SelectYearProps) {
     [value]
   );
 
-  console.log({ valueIsUncoveredYear, searchIsUncoveredYear, value, search });
-
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
