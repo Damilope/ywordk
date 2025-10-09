@@ -1,7 +1,7 @@
-import { useBlogTypeAndItems } from "@/lib/hooks/useBlogType.ts";
+import { kAppRootPaths } from "@/lib/definitions/system.ts";
+import { getBlogTypeAndItems } from "@/lib/hooks/useBlogType.ts";
 import Breadcrumbs from "../contexts/breadcrumbs.tsx";
 import BlogItemList from "./blog-item-list.tsx";
-import { kAppRootPaths } from "@/lib/definitions/system.ts";
 
 export interface FetchedBlogItemDefListProps {
   pathname: string;
@@ -11,7 +11,7 @@ export async function FetchedBlogItemDefList(
   props: FetchedBlogItemDefListProps
 ) {
   const { pathname } = props;
-  const { def, items } = await useBlogTypeAndItems(pathname);
+  const { def, items } = await getBlogTypeAndItems(pathname);
 
   return (
     <>

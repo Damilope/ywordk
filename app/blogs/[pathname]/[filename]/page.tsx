@@ -1,5 +1,5 @@
 import FetchBlogContent from "@/components/blog/fetch-blog";
-import { useBlogContentInfo } from "@/lib/hooks/useBlogContent.ts";
+import { getBlogContentInfo } from "@/lib/hooks/useBlogContent.ts";
 import { Metadata } from "next";
 
 export interface BlogFilePageProps {
@@ -8,8 +8,6 @@ export interface BlogFilePageProps {
     filename: string;
   };
 }
-
-const getBlogContentInfo = useBlogContentInfo;
 
 export async function generateMetadata(
   props: BlogFilePageProps

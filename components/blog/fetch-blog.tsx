@@ -1,4 +1,4 @@
-import { useBlogContent } from "@/lib/hooks/useBlogContent.ts";
+import { getBlogContent } from "@/lib/hooks/useBlogContent.ts";
 import RenderBlogContent from "./render-blog.tsx";
 
 export interface FetchBlogContentProps {
@@ -8,7 +8,7 @@ export interface FetchBlogContentProps {
 
 export default async function FetchBlogContent(props: FetchBlogContentProps) {
   const { pathname, filename } = props;
-  const { content, item, def, next, prev } = await useBlogContent(
+  const { content, item, def, next, prev } = await getBlogContent(
     pathname,
     filename
   );

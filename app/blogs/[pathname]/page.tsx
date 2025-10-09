@@ -1,5 +1,5 @@
 import { FetchedBlogItemDefList } from "@/components/blog/fetched-blog-item-list.tsx";
-import { useBlogType } from "@/lib/hooks/useBlogType.ts";
+import { getBlogType } from "@/lib/hooks/useBlogType.ts";
 import { Metadata } from "next";
 
 export interface blogTypePageProps {
@@ -7,8 +7,6 @@ export interface blogTypePageProps {
     pathname: string;
   };
 }
-
-const getBlogType = useBlogType;
 
 export async function generateMetadata(
   props: blogTypePageProps
