@@ -38,7 +38,7 @@ async function getBookContent(key: string) {
   const bookDef = bookDefList.find(
     (bookDef) => bookDef.key.toLowerCase() === key.toLowerCase()
   );
-  assert(bookDef, `Book at path /${key} not found`);
+  assert.ok(bookDef, `Book at path /${key} not found`);
 
   return { def: bookDef, description: await getBookDescription(bookDef) };
 }

@@ -10,7 +10,7 @@ export async function getBlogType(pathname: string) {
   const blogType = blogTypeList.find(
     (blogType) => blogType.pathname.toLowerCase() === pathname.toLowerCase()
   );
-  assert(blogType, `Blog at path /${pathname} not found`);
+  assert.ok(blogType, `Blog at path /${pathname} not found`);
 
   return { blogType };
 }
