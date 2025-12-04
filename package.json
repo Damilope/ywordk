@@ -47,7 +47,7 @@
     "react-dom": "^18",
     "react-icons": "^4.9.0",
     "rehype-highlight": "^7.0.1",
-    "softkave-node-utils": "^0.4.2",
+    "softkave-node-utils": "^0.5.0",
     "swr": "^2.2.5",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
