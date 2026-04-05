@@ -1,8 +1,8 @@
+import { fimidxConsoleLogger } from "@/lib/common/logger";
 import { loadPlace } from "@/lib/maps/loader.ts";
 import assert from "assert";
 import { isNumber, isString } from "lodash-es";
 import { NextRequest } from "next/server";
-import { fimidxConsoleLogger } from "softkave-node-utils/common";
 
 export async function POST(req: NextRequest) {
   try {

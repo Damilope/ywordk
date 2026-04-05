@@ -1,4 +1,6 @@
+import { fimidxConsoleLogger } from "./lib/common/logger";
+
 export function register() {
-  console.log("PID", process.pid);
-  console.log("PPID", process.ppid);
+  fimidxConsoleLogger.log("PID", { pid: process.pid });
+  fimidxConsoleLogger.log("PPID", { ppid: process.ppid });
 }
