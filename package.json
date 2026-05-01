@@ -5,9 +5,9 @@
   "scripts": {
     "start": "next start -p $PORT",
     "build": "next build",
-    "dev": "npx --yes -- softkave-forerunner@latest run-env -e .env.local -- next dev",
-    "sync-public": "npx --yes -- softkave-forerunner@latest run-env -- zx sh/sync-public.mjs",
-    "extract-matter-blogs": "npx --yes -- softkave-forerunner@latest run-env -- npx --yes -- tsx sh/extract-matter-blogs.ts",
+    "dev": "npx --yes -- softkave-forerunner@latest run-env -e .env.local --cmd \"next dev\"",
+    "sync-public": "npx --yes -- softkave-forerunner@latest run-env --cmd \"zx sh/sync-public.mjs\"",
+    "extract-matter-blogs": "npx --yes -- softkave-forerunner@latest run-env --cmd \"npx --yes -- tsx sh/extract-matter-blogs.ts\"",
     "lint": "next lint",
     "upload-source-maps": "npx --yes -- fimidx@latest source-maps upload --client-token \"$FIMIDX_SYMBOLICATION_AUTH_TOKEN\" --project-id \"$NEXT_PUBLIC_FIMIDX_LOGGER_PROJECT_ID\" --repo \"$NEXT_PUBLIC_FIMIDX_SYMBOLICATION_REPO\" --version \"$NEXT_PUBLIC_FIMIDX_SYMBOLICATION_VERSION\" --path .next",
     "delete-source-maps": "find .next -name '*.map' -type f -delete"
